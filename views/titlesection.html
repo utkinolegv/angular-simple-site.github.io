@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-lg-12">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-lg-12">
+      <h2>Секция 1 главной страницы</h2>
+      <form name="form" ng-submit="vm.change()" role="form">
+         <div class="form-group" ng-class="{ 'has-error': form.titleh3.$dirty && form.titleh3.$error.required }">
+            <label for="titleh3">Заголовок H3</label>
+            <input type="text" name="titleh3" id="titleh3" class="form-control" ng-model="vm.titleh3" required />
+            <span ng-show="form.titleh3.$dirty && form.titleh3.$error.required" class="help-block">Введите заголовок</span>
+         </div>
+         <div class="form-group">
+            <label for="titlemsg">Сообщение под заголовком</label>
+            <input type="text" name="titlemsg" id="titlemsg" class="form-control" ng-model="vm.titlemsg"/>
+         </div>
+         <div class="form-group">
+            <label for="titleform">Форма для заголовка</label>
+            <textarea class="form-control" name="titleform" id="titleform" rows="10" ng-model="vm.titleform"></textarea>
+         </div>
+         <div class="form-group">
+            <label for="submsg">Сообщение под формой</label>
+            <input type="text" name="submsg" id="submsg" class="form-control" ng-model="vm.submsg"/>
+         </div>
+         <div class="form-group">
+            <label for="urlvideo">URL видео</label>
+            <input type="text" name="urlvideo" id="urlvideo" class="form-control" ng-model="vm.urlvideo"/>
+         </div>
+         <div class="form-group">
+            <label for="urlbackground">URL фоновой картинки</label>
+            <input type="text" name="urlbackground" id="urlbackground" class="form-control" ng-model="vm.urlbackground"/>
+         </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-outline btn-primary">Изменить</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+      </form>
+     </div>
+    </div>
+</div>

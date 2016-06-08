@@ -1,0 +1,119 @@
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{ modalTitle }}</h3>
+        </div>
+        <div class="modal-body">
+            {{ modalBody }}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Отмена</button>
+        </div>
+</script>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Страницы <strong>{{name}}</strong></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Страницы
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                
+                <button ui-sref="dashboard.editpage({pageId:'0', pageType: 'page', parentId: {{parent}}})" type="button" class="btn btn-primary btn-outline">Новая страница</button>
+                <button ui-sref="dashboard.editpage({pageId:'0', pageType: 'news', parentId: {{parent}}})" type="button" class="btn btn-primary btn-outline">Новая новость</button>
+                <button ui-sref="dashboard.editpage({pageId:'0', pageType: 'folder', parentId: {{parent}}})" type="button" class="btn btn-primary btn-outline">Новая папка</button>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th></th>
+                                <th>Наименование</th>
+                                <th>Дата</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         <tr ng-repeat="x in pages">
+                             <td><span ng-if="x.Name!='..'">{{ x.Id }}</span></td>
+                             <td>
+                               <span ng-if="x.Type==='page'"><i title="Страница" class="fa fa-file-code-o"></i>
+                               </span>
+                               <span ng-if="x.Type==='news'"><i title="Новость" class="fa fa-file-text-o"></i>
+                               </span>
+                               <span ng-if="x.Type==='folder'"><i class="fa fa-folder-o"></i>
+                               </span>
+                             </td>
+                             <td>
+                              <span ng-if="x.On==='true'">
+                               <span ng-if="x.Type==='page'">
+                               {{ x.Name }}
+                               </span>
+                               <span ng-if="x.Type==='news'">
+                               {{ x.Name }}
+                               </span>
+                               <span ng-if="x.Type==='folder'">
+                                 <a title="Перейти в папку" ui-sref="dashboard.pages({pageId: {{ x.Id }}})">{{ x.Name }}</a>
+                               </span>
+                              </span>
+                              <span ng-if="x.Off==='true'">
+                               <a title="Редактировать" ui-sref="dashboard.editpage({pageId: {{ x.Id }}, pageType: '{{ x.Type }}', parentId: {{parent}}})">{{ x.Name }}</a>
+                              </span>
+                             </td>
+                             <td>{{ x.Date }}</td>
+                             <td>
+                              <a ng-model="x.Model" ui-sref="dashboard.movepage({move: 0, pageId: {{ x.Id }}, pageType: '{{ x.Type }}', parentId: {{parent}}})" class="btn">
+                               <i class="fa fa-arrow-up"></i>
+                              </a> 
+                              <a ng-model="x.Model" ui-sref="dashboard.movepage({move: 1, pageId: {{ x.Id }}, pageType: '{{ x.Type }}', parentId: {{parent}}})" class="btn">
+                               <i class="fa fa-arrow-down"></i>
+                              </a>
+                             </td>
+                             <td>
+                              <a ng-model="x.Model" ui-sref="dashboard.switchpage({pageId: {{ x.Id }}, pageType: '{{ x.Type }}', parentId: {{parent}}})" class="btn">
+                               <span ng-if="x.On==='true'" title="Снять видимость"><i class="fa fa-eye"></i>
+                               </span>
+                               <span ng-if="x.Off==='true'" title="Установить видимость"><i class="fa fa-eye-slash"></i>
+                               </span>
+                              </a>
+                             </td>
+                             <td>
+                               <span ng-if="x.Off==='true'">
+                                   <a title="Удалить" ng-click="del(x.Id,'x.Type',parent)" class="btn"><i class="fa fa-times"></i></a>
+                               </span>
+                               <span ng-if="x.On==='true'">
+                                 <span ng-if="x.Type==='page'">
+                                   <a title="Просмотр страницы" target="_blank" ui-sref="site.page({pageId: {{ x.Id }}})" class="btn"><i class="fa fa-external-link"></i></a>
+                                 </span>
+                                 <span ng-if="x.Type==='news'">
+                                   <a title="Просмотр новости" target="_blank" ui-sref="site.news({pageId: {{ x.Id }}})" class="btn"><i class="fa fa-external-link"></i></a>
+                                 </span>
+                               </span>
+                             </td>
+                         </tr>
+                       </tbody>
+                    </table>
+                              
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+
+</div>
+
+</div>

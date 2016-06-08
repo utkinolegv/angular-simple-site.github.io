@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="expertApp" lang="ru" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-submenu/ng-bootstrap-submenu.min.css" type="text/css">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>    
+    <script src="bower_components/angular-bootstrap-submenu/ng-bootstrap-submenu.min.js"></script>
+    <script src="scripts/app.js"></script>
+    </head>
+    <body>
+
+     <div ng-controller="menuController">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      
+          <a class="navbar-brand" ui-sref="site.welcome">{{sitetitle}}</a>
+        </div>
+      
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <bootstrap-submenu ng-repeat="item in menuItems" menu-item="item">
+            </bootstrap-submenu>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+           <li ng-bind-html="loginHTML()"></li>
+          </ul>
+        </div>
+      </nav>
+     </div>
+     <div ui-view>
+     </div>  
+    </body>
+</html>

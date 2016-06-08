@@ -1,0 +1,55 @@
+           <section class="header-11-sub bg-midnight-blue">
+                <div class="background" style="background-image: url('{{urlbackground}}');">
+                    &nbsp;
+                </div>
+                <div class="container">
+                    <div ng-if="urlvideo!=undefined" class="row">
+                        <div class="col-sm-4">
+                            <h3>{{titleh3}}</h3>
+                            <p>{{titlemsg}}</p>
+                            <div ng-bind-html="FormDangerousHTML()">
+                            </div>
+                            <div ng-if="submsg!=''" class="additional-links">{{submsg}}</div>
+                        </div>
+                        <div class="col-sm-7 col-sm-offset-1 player-wrapper">
+                            <div class="player">
+                                <iframe ng-src="{{urlvideo}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="urlvideo==undefined" class="row">
+                        <div class="col-sm-12">
+                            <h3>{{titleh3}}</h3>
+                            <p>{{titlemsg}}</p>
+                            <div ng-bind-html="FormDangerousHTML()">
+                            </div>
+                            <div ng-if="submsg!=''" class="additional-links">{{submsg}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+   <div class="container" style="padding-top: 20px;">        
+      <div class="row">
+        <!-- Новости -->
+        <div ng-repeat="news in newses" class="col-sm-6 col-md-3">
+        <div class="list-group">
+                   <a class="list-group-item active" ui-sref="site.news({pageId: {{ news.Id }}})">
+                       <h4 class="list-group-item-heading">{{news.Name}}</h4>
+                       <p class="list-group-item-text">{{news.Date}}</p>
+                   </a>
+                   <span ng-if="news.urlPicture!=''">
+                    <a class="list-group-item" style="padding: 0px 0px;" ui-sref="site.news({pageId: {{ news.Id }}})">
+                       <figure><img ng-src="{{news.urlPicture}}" alt="{{news.Name}}"></figure>
+                    </a>
+                   </span>
+                   <span ng-if="news.News!=''">
+                    <a class="list-group-item" ui-sref="site.news({pageId: {{ news.Id }}})">
+                       <p class="list-group-item-text">{{news.News}}</p>
+                    </a>
+                   </span>
+         </div>
+       </div>                
+        
+    </div> 
+   </div>

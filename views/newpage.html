@@ -1,0 +1,56 @@
+<div class="container-fliud">
+    <div class="row">
+     <div class="col-lg-12">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+     </div>
+    </div>
+    
+    <div class="row">
+     <div class="col-lg-12">
+      <span ng-if="vm.pagetype=='page'">
+       <h2>Новая страница</h2>
+      </span> 
+      <span ng-if="vm.pagetype=='folder'">
+       <h2>Новая папка</h2>
+      </span> 
+      <span ng-if="vm.pagetype=='news'">
+       <h2>Новая новость</h2>
+      </span> 
+      <form name="form" ng-submit="vm.newpage()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+
+            <label for="name">Наименование</label>
+            <input type="text" name="name" id="name" class="form-control" ng-model="vm.name" required />
+            <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Введите наименование</span>
+            
+            <span ng-if="vm.pagetype==='news'">
+             <label for="background">Картинка для новости</label>
+             <input type="text" name="background" id="background" class="form-control" ng-model="vm.background"/>
+             <label for="shortnews">Краткое содержание новости</label>
+             <textarea class="form-control" name="shortnews" rows="3" ng-model="vm.shortnews"></textarea>
+             <span ng-show="form.shortnews.$dirty && form.shortnews.$error.required" class="help-block">Введите краткое содержание новости</span>
+            </span>
+
+            <span ng-if="vm.pagetype==='news'">
+             <label for="content">Содержание</label>
+             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Введите содержание</span>
+             <wysiwyg name="content" id="content" required textarea-id="content" textarea-class="form-control"  textarea-height="280px" textarea-name="content" textarea-required ng-model="vm.content" enable-bootstrap-title="true"></wysiwyg>
+            </span>
+            <span ng-if="vm.pagetype==='page'">
+             <label for="content">Содержание</label>
+             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Введите содержание</span>
+             <wysiwyg name="content" id="content" required textarea-id="content" textarea-class="form-control"  textarea-height="280px" textarea-name="content" textarea-required ng-model="vm.content" enable-bootstrap-title="true"></wysiwyg>
+            </span>
+         </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-outline btn-primary">Добавить</button>
+            <button ng-if="vm.pagetype==='page'" ui-sref="dashboard.pages({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Отмена</button>
+            <button ng-if="vm.pagetype==='news'" ui-sref="dashboard.pages({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Отмена</button>
+            <button ng-if="vm.pagetype==='folder'" ui-sref="dashboard.pages({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Отмена</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+      </form>
+     </div>
+    </div>
+</div>

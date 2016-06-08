@@ -1,0 +1,20 @@
+<div id="wrapper">
+ 
+<div ui-view="site_content"></div>
+
+<footer class="site-footer footer-inverse"> 
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-sm-6">
+        <p ng-bind-html="footerLeftHTML()"></p>  
+      </div> 
+      <div class="col-sm-6"> 
+       <span class="pull-right" style="top: 1px;">
+        <p ng-bind-html="footerRightHTML()"></p>
+       </span> 
+      </div> 
+    </div>
+  </div>
+</footer>
+
+</div>
