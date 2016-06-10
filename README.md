@@ -6,7 +6,7 @@
 
 **Angular simple site builder** is a template based on [AngularJS](http://angularjs.org/) framework. 
 
-###Based template features:
+###Basic template features:
 
 1. User authtorization support.  
 2. WYSIWYG page editor. 
