@@ -6,7 +6,8 @@
 
 **Angular simple site builder** is a template based on [AngularJS](http://angularjs.org/) framework. 
 
-1. User auth support. 
+Based template features:
+1. User authtorization support.  
 2. WYSIWYG page editor. 
 3. Support multilevel site menu. 
 4. You can create two type of pages: news or simple page. 
@@ -35,7 +36,6 @@ $ cd `project-directory`
 ```sh
 $ npm install 
 ```
-
 ```sh
 $ npm start
 ```
