@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 0);
 error_reporting(); 
-define("MYSQL_CONN_ERROR", "Unable to connect to database."); 
+define("MYSQL_CONN_ERROR", "Unable connect to database."); 
 mysqli_report(MYSQLI_REPORT_STRICT); 
 
 class Config {
@@ -10,9 +10,10 @@ class Config {
    
    function __construct() {
     
-    $dbname = "";
-    $dbuser = "";
-    $dbpasswd = "";
+    $dbname = ""; // setup Database name
+    $dbuser = ""; // setup Database user
+    $dbpasswd = ""; // setup Database password
+    
     try {
      self::$conn = new mysqli("localhost", $dbuser, $dbpasswd, $dbname);
     }
@@ -31,25 +32,27 @@ class Config {
     }
    }
 
-   // Авторизация пользователя
+   // User auth
    public static function user_auth($login,$pass)
    {
     try 
     {
-     //проверяем есть ли пользователь с таким login'ом и password'ом
+           // Check exist user
 	   $res = self::$conn->query("SELECT * FROM users WHERE username='".$login."' AND password='".md5($pass)."' LIMIT 1;");
 	   if($res->num_rows!=0) 
      {	
-      $token = md5(time().$login);
-      setcookie('token', $token, time() + 60 * 60 * 24 * 14);
-      self::$conn->query("UPDATE users SET token='$token' WHERE username='".$login."'AND password='".md5($pass)."'");
+          
+          $token = md5(time().$login);
+          setcookie('token', $token, time() + 60 * 60 * 24 * 14);
+          
+          self::$conn->query("UPDATE users SET token='$token' WHERE username='".$login."'AND password='".md5($pass)."'");
     
-      session_start(); 
+          session_start(); 
 
   	  $_SESSION['login'] = $login;	
   	  $_SESSION['pass'] = md5($pass);
 
-      return true;
+          return true;
    	 } 
      else
      {
@@ -62,7 +65,7 @@ class Config {
     }
    }
 
-   // Авторизация пользователя - изменение данных
+   // user auth - change data
    public static function user_change($login,$pass,$token)
    {
     try 
@@ -78,7 +81,7 @@ class Config {
     }
    }
 
-   // Получаем limit новостей
+   // Get news
    public static function newses($limit, $offset, $id)
    {
     try 
@@ -105,7 +108,7 @@ class Config {
     }
    }
 
-   // Получаем все страницы
+   // Get pages
    public static function page_get_all($zeroid, $zero, $type, $parentid)
    {
     try 
@@ -119,7 +122,7 @@ class Config {
       if (!empty($zero))
       {
        $outp .= '{"Id":"0",';
-       $outp .= '"Name":"Нулевой"}';
+       $outp .= '"Name":"Zero"}';
       }
       if (empty($parentid))
       {
@@ -153,16 +156,7 @@ class Config {
         else
         {
           $outp .= '"Name":"' . base64_decode($rs["name"]) . '",';
-        /* if ($rs["level"]==0)
-         {
-          $outp .= '"Menu":"Нулевой уровень",';
-         }
-         else
-         {
-          $result2 = self::$conn->query("SELECT name FROM pages WHERE pagetype='".$type."' AND id=".$rs["level"]." LIMIT 1;");
-          $rs2 = $result2->fetch_array(MYSQLI_ASSOC);
-          $outp .= '"Menu":"' . base64_decode($rs2["name"]) . '",';
-         } */
+        
        
          $outp .= '"Model": "pageswitch' . $rs["id"] . '",';
          if ($rs["onoff"]==1) $m = 'true'; else $m = 'false;';
@@ -181,7 +175,7 @@ class Config {
     }
    }
 
-   // Данные страницы
+   // Get single page
    public static function page_view($id,$access)
    {
     try 
@@ -219,7 +213,7 @@ class Config {
     }
    }
 
-   // Генератор меню ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   // Menu generator  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    public static function gen_submenu($id)
    {
     try 
@@ -240,13 +234,11 @@ class Config {
          
          if ($rs2["pagetype"]=='folder')
          {
-      //    $subout .= '"Child":"true",';
           $subout .= '"children":'.self::gen_submenu($rs2["id"]).',';
          }
          else
          {
           $subout .= '"children":[],';
-        //  $subout .= '"Child":"false"}';
          }
          $subout .= '"display":"' . base64_decode($rs2["name"]) . '"}';
         } 
@@ -296,12 +288,12 @@ class Config {
     }
    }
 
-   // Добавляет или обновляет страницу
+   // Add or modify page
    public static function page_modify($id, $name, $content, $pagetype, $level, $background, $shortnews)
    {
     try 
     {
-      if ($id===0) // Добавим данные
+      if ($id===0) // Add page
       {
         return self::$conn->query("INSERT INTO pages VALUES (0,
                                         '$name',
@@ -313,7 +305,7 @@ class Config {
                                         '$background',
                                         '$shortnews')");      
       }
-      else // Редактируем данные
+      else // Update page
       {
        return self::$conn->query("UPDATE pages SET name='".$name."', content='".$content."', level=".$level.", background='".$background."', shortnews='".$shortnews."' WHERE id=".$id);      
       }
@@ -324,7 +316,7 @@ class Config {
     }
    }
 
-   // Перемещает страницу страницы
+   // Move page or folder
    public static function page_move($id,$move,$parentid,$type)
    {
     try 
@@ -352,7 +344,7 @@ class Config {
     }
    }
 
-   // Устанавливает видимость страницы
+   // Set page visible
    public static function page_set_switch($id)
    {
     try 
@@ -368,7 +360,7 @@ class Config {
     }
    }
 
-   // Удаляет страницу
+   // Delete page
    public static function page_delete($id)
    {
     try 
@@ -381,6 +373,7 @@ class Config {
     }
    }
    
+   // Chack user token
    public static function check_token($token)
    {
     if (isset($token))
@@ -402,6 +395,7 @@ class Config {
     } 
    }
 
+   // Get user name
    public static function get_user_name($token)
    {
     if (isset($token))
@@ -423,7 +417,8 @@ class Config {
      return "";
     } 
    }
-   // Функции для секций  
+   
+   // Front page setup setter  
    public static function set_section($post)
    {
     try 
@@ -463,7 +458,8 @@ class Config {
      echo "Service unavailable";
     }
    }
-
+   
+   // Front page getter
    public static function get_section($id)
    {
     if (isset($id))
