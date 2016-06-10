@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   PRIMARY KEY (`id`),
   KEY `pagetype` (`pagetype`),
   KEY `level` (`level`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `sections` (
   `param4` text COLLATE utf8_unicode_ci NOT NULL,
   `param5` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `social_id` (`social_id`),
   KEY `pacount` (`pacount`),
   KEY `token` (`token`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 INSERT INTO `users` (`id`, `username`, `password`, `userfio`, `usertype`, `puttime`, `email`, `aball`, `regnumber`, `regdata`, `job`, `passchanged`, `info`, `photoname`, `phone`, `person`, `token`, `status`, `pacount`, `region`, `city`, `private_fio`, `private_email`, `private_region`, `private_city`, `private_job`, `private_person`, `private_photo`, `social_id`, `social_page`, `sex`, `birthday`, `provider`, `qcount`) VALUES
 (1, 'test', '098f6bcd4621d373cade4e832627b4f6', '', 'admin', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00', '', 0, '', '', '', '', 'ccebfb0729999a2fc3994743eb536881', 'online', 0, '', '', 0, 0, 0, 0, 0, 0, 0, '', '', 'male', '0000-00-00', 'vk', 0);
