@@ -443,8 +443,8 @@ angular
         $templateCache.removeAll();
         // Устанавливаем параметры сайта
         $rootScope.siteName = 'AngularJS simple site builder';
-        $rootScope.footerLeft = '&copy; 2016 <a href="mailto:siberia-soft@yandex.ru">AngularJS simple site builder</a>';
-        $rootScope.footerRight = '<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="big" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div>';
+        $rootScope.footerLeft = '';
+        $rootScope.footerRight = '';
         $rootScope.logIn = '<a title="Вход" href="#/site/login"><i class="fa fa-sign-in fa-fw"></i> Вход</a>';
         $rootScope.logOut = '<a title="Выход" href="#/dashboard/logout"><i class="fa fa-sign-out fa-fw"></i> Выход</a>';
          
