@@ -169,32 +169,6 @@ angular
           }
         }
       })
-      .state('site.reg', {
-        url:'/reg',
-        views: {
-                '': {
-                    templateUrl: 'views/home.html',
-                    controller: 'homeCtrl'
-                },
-                'site_content@site.reg': {
-                    templateUrl: 'views/pages/register.html',
-                    controller:'Register',
-                    controllerAs: 'vm'
-                }
-        },
-        resolve: {
-          loadMyFile:function($ocLazyLoad) {
-            return $ocLazyLoad.load({
-                name:'expertApp',
-                files:[
-                 'scripts/controllers/Register.js',
-                 'scripts/app-services/flash.service.js',
-                 'scripts/app-services/user.service.local-storage.js'
-                ]
-            })
-          }
-        }
-      })
      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
      // Admin panel 
      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
