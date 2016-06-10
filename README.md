@@ -10,8 +10,8 @@
 
 1. User authtorization support.  
 2. WYSIWYG page editor. 
-3. Support multilevel site menu. 
-4. You can create two type of pages: news or simple page. 
+3. Support unlimit multilevel site menu. 
+4. Two type of pages: news or simple page. 
 5. All backend functions list in one PHP class 
 
 ## Installation
