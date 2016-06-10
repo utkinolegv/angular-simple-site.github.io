@@ -9,84 +9,81 @@
     <div class="row">
      <div class="col-lg-12">
       <span ng-if="vm.pagetype=='page'">
-       <h2 ng-if="pageid!=0">Редактирование страницы</h2>
-       <h2 ng-if="pageid==0">Новая страница</h2>
+       <h2 ng-if="pageid!=0">Edit page</h2>
+       <h2 ng-if="pageid==0">New page</h2>
       </span> 
       <span ng-if="vm.pagetype=='news'">
-       <h2 ng-if="pageid!=0">Редактирование новости</h2>
-       <h2 ng-if="pageid==0">Новая новость</h2>
+       <h2 ng-if="pageid!=0">Edit news</h2>
+       <h2 ng-if="pageid==0">New news</h2>
       </span> 
       <span ng-if="vm.pagetype=='folder'">
-       <h2 ng-if="pageid!=0">Редактирование папки (пункта меню)</h2>
-       <h2 ng-if="pageid==0">Новая папка (пункт меню)</h2>
+       <h2 ng-if="pageid!=0">Edit folder (menu item)</h2>
+       <h2 ng-if="pageid==0">New folder (menu item)</h2>
       </span> 
       <form name="form" role="form">
 
   <tabs>
     <pane title="Содержание">
           <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
-            <label for="name">Наименование</label>
+            <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control" ng-model="vm.name" required />
-            <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Введите наименование</span>
+            <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Enter name</span>
           </div>
           <span ng-if="vm.pagetype==='news'">
             <div class="form-group">
-             <label for="content">Содержание</label>
-             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Введите содержание</span>
+             <label for="content">Content</label>
+             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Enter content</span>
              <wysiwyg name="content" id="content" required textarea-id="content" textarea-class="form-control"  textarea-height="280px" textarea-name="content" textarea-required ng-model="vm.content" enable-bootstrap-title="true"></wysiwyg>
             </div>
           </span>
           <span ng-if="vm.pagetype==='page'">
             <div class="form-group">
-             <label for="content">Содержание</label>
-             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Введите содержание</span>
+             <label for="content">Content</label>
+             <span ng-show="form.content.$dirty && form.content.$error.required" class="help-block">Enter content</span>
              <wysiwyg name="content" id="content" required textarea-id="content" textarea-class="form-control"  textarea-height="280px" textarea-name="content" textarea-required ng-model="vm.content" enable-bootstrap-title="true"></wysiwyg>
             </div>
           </span>
     </pane>
-    <pane ng-if="vm.pagetype=='news'" title="Новости">
+    <pane ng-if="vm.pagetype=='news'" title="News">
             <div class="form-group">
-             <label for="background">Картинка для новости</label>
+             <label for="background">Picture for news</label>
              <input type="text" name="background" id="background" class="form-control" ng-model="vm.background"/>
             </div>
             <div class="form-group">
-             <label for="shortnews">Краткое содержание новости</label>
+             <label for="shortnews">Short news</label>
              <textarea class="form-control" name="shortnews" rows="3" ng-model="vm.shortnews"></textarea>
-             <span ng-show="form.shortnews.$dirty && form.shortnews.$error.required" class="help-block">Введите краткое содержание новости</span>
+             <span ng-show="form.shortnews.$dirty && form.shortnews.$error.required" class="help-block">Enter short news</span>
             </div>
     </pane>
-    <pane ng-if="vm.pagetype!='folder' && pageid!=0" title="Галерея">
-                    <h3>Выбор файлов</h3>
+    <pane ng-if="vm.pagetype!='folder' && pageid!=0" title="Pictures">
+                    <h3>Select picture</h3>
 
                     <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
                     <input type="file" nv-file-select="" uploader="uploader" filters="imageFilter" multiple  /><br/>
 
                     <div>
                         <div>
-                            Прогресс загрузки:
+                            Progress:
                             <div class="progress" style="">
                                 <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
                             </div>
                         </div>
                         <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                            <span class="glyphicon glyphicon-upload"></span> Загрузить все
+                            <span class="glyphicon glyphicon-upload"></span> Upload all
                         </button>
                         <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
-                            <span class="glyphicon glyphicon-ban-circle"></span> Отменить все
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel all 
                         </button>
-                        <!-- <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                            <span class="glyphicon glyphicon-trash"></span> Удалить все
-                        </button> -->
                     </div>
 
-                    <h3>Загруженные картинки ({{ uploader.queue.length }})</h3>
+                    <h3>Uploaded pictures ({{ uploader.queue.length }})</h3>
 
                     <table class="table">
                         <thead>
                             <tr>
                                 <th width="50%">Имя</th>
-                                <th ng-show="uploader.isHTML5">Размер</th>
-                                <th ng-show="uploader.isHTML5">Прогресс</th>
+                                <th ng-show="uploader.isHTML5">Size</th>
+                                <th ng-show="uploader.isHTML5">Progress</th>
                                 <th>Статус</th>
                                 <th>URL</th>
                                 <th>Действия</th>
@@ -111,13 +108,13 @@
                                 </td>
                                 <td nowrap>
                                     <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                        <span class="glyphicon glyphicon-upload"></span> Загрузить
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
                                     </button>
                                     <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                        <span class="glyphicon glyphicon-ban-circle"></span> Отмена
+                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                                     </button>
                                     <button type="button" class="btn btn-danger btn-xs" ng-click="deleteFile($index)">
-                                        <span class="glyphicon glyphicon-trash"></span> Удалить
+                                        <span class="glyphicon glyphicon-trash"></span> Delete
                                     </button>
                                 </td>
                             </tr>
@@ -126,13 +123,13 @@
     </pane>
   </tabs>
         <div class="form-actions">
-            <button ng-if="pageid!=0" ng-click="vm.editpage(true)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Изменить и закрыть</button>
-            <button ng-if="pageid!=0" ng-click="vm.editpage(false)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Изменить</button>
-            <button ng-if="pageid==0" ng-click="vm.newpage(true)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Создать и закрыть</button>
-            <button ng-if="pageid==0" ng-click="vm.newpage(false)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Создать</button>
-            <a ng-if="vm.pagetype=='page'" target-blank ui-sref="site.page({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Просмотр</a>
-            <a ng-if="vm.pagetype=='news'" target-blank ui-sref="site.news({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Просмотр</a>
-            <button ui-sref="dashboard.pages({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Отмена</button>
+            <button ng-if="pageid!=0" ng-click="vm.editpage(true)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Change ans close</button>
+            <button ng-if="pageid!=0" ng-click="vm.editpage(false)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Change</button>
+            <button ng-if="pageid==0" ng-click="vm.newpage(true)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Create and close</button>
+            <button ng-if="pageid==0" ng-click="vm.newpage(false)" ng-disabled="form.$invalid || vm.dataLoading" type="button" class="btn btn-outline btn-primary">Create</button>
+            <a ng-if="vm.pagetype=='page'" target-blank ui-sref="site.page({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">View</a>
+            <a ng-if="vm.pagetype=='news'" target-blank ui-sref="site.news({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">View</a>
+            <button ui-sref="dashboard.pages({pageId: {{ parent }}})" type="button" class="btn btn-outline btn-primary">Cancel</button>
             <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
       </form>
