@@ -1,9 +1,3 @@
--- --------------------------------------------------------
-
---
--- Структура таблицы `pages`
---
-
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
@@ -19,12 +13,6 @@ CREATE TABLE IF NOT EXISTS `pages` (
   KEY `level` (`level`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `sections`
---
-
 CREATE TABLE IF NOT EXISTS `sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `param0` text COLLATE utf8_unicode_ci NOT NULL,
@@ -35,12 +23,6 @@ CREATE TABLE IF NOT EXISTS `sections` (
   `param5` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `users`
---
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -75,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `social_page` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sex` enum('male','female') COLLATE utf8_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
-  `provider` enum('vk','odnoklassniki','mailru','yandex','google','facebook') COLLATE utf8_unicode_ci NOT NULL,
+  `provider` enum('google','facebook') COLLATE utf8_unicode_ci NOT NULL,
   `qcount` smallint(6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userfio` (`userfio`),
@@ -94,4 +76,4 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 INSERT INTO `users` (`id`, `username`, `password`, `userfio`, `usertype`, `puttime`, `email`, `aball`, `regnumber`, `regdata`, `job`, `passchanged`, `info`, `photoname`, `phone`, `person`, `token`, `status`, `pacount`, `region`, `city`, `private_fio`, `private_email`, `private_region`, `private_city`, `private_job`, `private_person`, `private_photo`, `social_id`, `social_page`, `sex`, `birthday`, `provider`, `qcount`) VALUES
-(1, 'test', '098f6bcd4621d373cade4e832627b4f6', '', 'admin', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00', '', 0, '', '', '', '', 'ccebfb0729999a2fc3994743eb536881', 'online', 0, '', '', 0, 0, 0, 0, 0, 0, 0, '', '', 'male', '0000-00-00', 'vk', 0);
+(1, 'test', '098f6bcd4621d373cade4e832627b4f6', '', 'admin', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00', '', 0, '', '', '', '', 'ccebfb0729999a2fc3994743eb536881', 'online', 0, '', '', 0, 0, 0, 0, 0, 0, 0, '', '', 'male', '0000-00-00', 'facebook', 0);
