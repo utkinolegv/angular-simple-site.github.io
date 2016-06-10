@@ -434,12 +434,14 @@ angular
          }); 
    })
    .run(['$templateCache', '$window', '$state', '$rootScope', '$location', '$cookieStore', '$http', function ($templateCache, $window, $state, $rootScope, $location, $cookieStore, $http){
-        // Очищаем кэш templateURL
+        
+        // clear templateURL
         $templateCache.removeAll();
-        // Устанавливаем параметры сайта
+        // site settings
         $rootScope.siteName = 'You site name';
         $rootScope.footerLeft = 'Left footer HTML text';
         $rootScope.footerRight = 'Right footer HTML text';
+        
         $rootScope.logIn = '<a title="Login" href="#/site/login"><i class="fa fa-sign-in fa-fw"></i> Login</a>';
         $rootScope.logOut = '<a title="Logout" href="#/dashboard/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
          
