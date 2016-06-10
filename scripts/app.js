@@ -29,11 +29,6 @@ angular
                   files:['bower_components/angular-resource/angular-resource.js']
       },
       {
-                  name:'ngDialog',
-                  files:['bower_components/angular-dialog/ngDialog.min.js',
-                        'bower_components/angular-dialog/ngDialog-theme-default.min.css']
-      },
-      {
                   name:'ngSanitize',
                   files:['bower_components/angular-sanitize/angular-sanitize.js']
       },
@@ -442,11 +437,11 @@ angular
         // Очищаем кэш templateURL
         $templateCache.removeAll();
         // Устанавливаем параметры сайта
-        $rootScope.siteName = 'AngularJS simple site builder';
-        $rootScope.footerLeft = '';
-        $rootScope.footerRight = '';
-        $rootScope.logIn = '<a title="Вход" href="#/site/login"><i class="fa fa-sign-in fa-fw"></i> Вход</a>';
-        $rootScope.logOut = '<a title="Выход" href="#/dashboard/logout"><i class="fa fa-sign-out fa-fw"></i> Выход</a>';
+        $rootScope.siteName = 'You site name';
+        $rootScope.footerLeft = 'Left footer HTML text';
+        $rootScope.footerRight = 'Right footer HTML text';
+        $rootScope.logIn = '<a title="Login" href="#/site/login"><i class="fa fa-sign-in fa-fw"></i> Login</a>';
+        $rootScope.logOut = '<a title="Logout" href="#/dashboard/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
          
         $rootScope.globals = $cookieStore.get('globals') || {};
         
