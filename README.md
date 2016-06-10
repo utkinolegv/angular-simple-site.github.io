@@ -6,12 +6,13 @@
 
 **Angular simple site builder** is a template based on [AngularJS](http://angularjs.org/) framework. 
 
-Based template features:
-1. User authtorization support.  
-2. WYSIWYG page editor. 
-3. Support multilevel site menu. 
-4. You can create two type of pages: news or simple page. 
-5. All backend functions list in one PHP class 
+####Based template features:
+
+###1. User authtorization support.  
+###2. WYSIWYG page editor. 
+###3. Support multilevel site menu. 
+###4. You can create two type of pages: news or simple page. 
+###5. All backend functions list in one PHP class 
 
 ## Installation
 ####1. Clone this project or Download that ZIP file
