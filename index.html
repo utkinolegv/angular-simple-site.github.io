@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Angular simple site by utkinolegv</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Angular simple site</h1>
+          <h2>Angular simple site builder</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/utkinolegv/angular-simple-site.github.io/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/utkinolegv/angular-simple-site.github.io/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/utkinolegv/angular-simple-site.github.io" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="angular-simple-site-builder" class="anchor" href="#angular-simple-site-builder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Angular simple site builder</h1>
+
+<hr>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h2>
+
+<p><strong>Angular simple site builder</strong> is a template based on <a href="http://angularjs.org/">AngularJS</a> framework. </p>
+
+<h3>
+<a id="basic-template-features" class="anchor" href="#basic-template-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic template features:</h3>
+
+<ol>
+<li>User authtorization support.<br>
+</li>
+<li>WYSIWYG page editor. </li>
+<li>Support unlimit multilevel site menu. </li>
+<li>Two type of pages: news or simple page. </li>
+<li>All backend functions list in one PHP class </li>
+</ol>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<h4>
+<a id="1-clone-this-project-or-download-that-zip-file" class="anchor" href="#1-clone-this-project-or-download-that-zip-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Clone this project or Download that ZIP file</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/utkinolegv/angular-simple-site.github.io</pre></div>
+
+<h4>
+<a id="2--make-sure-you-have-bower-and-npm-installed-globally" class="anchor" href="#2--make-sure-you-have-bower-and-npm-installed-globally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.  Make sure you have <a href="http://bower.io/">bower</a> and <a href="https://www.npmjs.org/">npm</a> installed globally</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo apt-get install npm
+$ sudo npm install -g bower</pre></div>
+
+<h4>
+<a id="3-on-the-command-prompt-run-the-following-commands" class="anchor" href="#3-on-the-command-prompt-run-the-following-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. On the command prompt run the following commands</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> <span class="pl-s"><span class="pl-pds">`</span>project-directory<span class="pl-pds">`</span></span></pre></div>
+
+<ul>
+<li>bower install is ran from the postinstall</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install </pre></div>
+
+<div class="highlight highlight-source-shell"><pre>$ npm start</pre></div>
+
+<h4>
+<a id="4-create-mysql-database-from-dbsql" class="anchor" href="#4-create-mysql-database-from-dbsql" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Create MySQL database from db.sql</h4>
+
+<ul>
+<li>Change database settings in backend/classes/config.class.php</li>
+</ul>
+
+<h4>
+<a id="5-change-site-settings-in-scriptsappjs" class="anchor" href="#5-change-site-settings-in-scriptsappjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Change site settings in scripts/app.js</h4>
+
+<ul>
+<li>$rootScope.siteName = 'You site name'; </li>
+<li>$rootScope.footerLeft = 'Left footer HTML text'; </li>
+<li>$rootScope.footerRight = 'Right footer HTML text';</li>
+</ul>
+
+<h4>
+<a id="6-login-and-create-first-page" class="anchor" href="#6-login-and-create-first-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Login and create first page</h4>
+
+<ul>
+<li>Default username <em>test</em> and password <em>test</em>
+</li>
+</ul>
+        </section>
+
+        <footer>
+          Angular simple site is maintained by <a href="https://github.com/utkinolegv">utkinolegv</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
