@@ -49,10 +49,6 @@ angular
                    files:['scripts/app-services/bootstrap-colorpicker-module.js']
       },
       {
-                   name:'modalService',
-                   files:['scripts/app-services/modal.service.js']
-      },
-      {
                    name:'wysiwyg.module',
                    files:['scripts/app-services/editor.min.css',
                     'scripts/app-services/wysiwyg.min.js']
@@ -178,15 +174,7 @@ angular
         url:'/dashboard',
         resolve: {
             loadMyDirectives:function($ocLazyLoad){
-                return $ocLazyLoad.load(
-                {
-                    name:'expertApp',
-                    files:[
-                    'styles/sb-admin-2.css',
-                    'js/sb-admin-2.js'
-                    ]
-                }),
-                $ocLazyLoad.load('ngAnimate'),
+                return $ocLazyLoad.load('ngAnimate'),
                 $ocLazyLoad.load('ngResource'),
                 $ocLazyLoad.load('ngSanitize'),
                 $ocLazyLoad.load('utf8-base64')
