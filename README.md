@@ -1,12 +1,12 @@
 # Angular simple site builder
 
 ---
-[Demo](http://demo.siberia-soft.ru/)
 
 ### About
 
 **Angular simple site builder** is a site template based on [AngularJS](http://angularjs.org/) framework.
 
+###[Demo](http://demo.siberia-soft.ru/)
 
 ###Basic template features:
 
