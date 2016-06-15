@@ -16,12 +16,21 @@
 4. Two type of pages: news or simple page. 
 5. All backend functions list in one PHP class 
 
-
 ### Application structure
 
 - **backend** - Applicaton model in PHP files
 - **scripts** - Application controllers
 - **views** - Application HTML templates
+
+### Dependencies
+
+- JQuery
+- Bootstrap 3.x
+- [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)
+- [Angular-ui-router](https://github.com/angular-ui/ui-router)
+- Angular-cookies
+- Angular-loading-bar
+- [Angular-bootstrap-submenu](https://www.npmjs.com/package/ng-bootstrap-submenu)
 
 ### Installation
 ####1. Clone this project or Download that ZIP file
