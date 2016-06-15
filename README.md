@@ -1,10 +1,12 @@
 # Angular simple site builder
 
 ---
+[Demo](http://demo.siberia-soft.ru/)
 
-## About
+### About
 
 **Angular simple site builder** is a site template based on [AngularJS](http://angularjs.org/) framework.
+
 
 ###Basic template features:
 
@@ -14,13 +16,14 @@
 4. Two type of pages: news or simple page. 
 5. All backend functions list in one PHP class 
 
-## Application structure
+
+### Application structure
 
 - **backend** - Applicaton model in PHP files
 - **scripts** - Application controllers
 - **views** - Application HTML templates
 
-## Installation
+### Installation
 ####1. Clone this project or Download that ZIP file
 
 ```sh
